@@ -75,7 +75,7 @@ const Feedbacks = () => {
             </div>
             <div className='flex items-start gap-4 group'>
               <a
-                href='https://www.linkedin.com/in/sagina-ravikiran-padal-0b9999253'
+                href='https://www.linkedin.com/in/ravikiran-padal-sagina-0b9999253'
                 target='_blank'
                 rel='noreferrer'
                 className='neon-icon neon-icon--link'
@@ -95,7 +95,7 @@ const Feedbacks = () => {
               <div>
                 <p className='text-secondary text-[14px]'>LinkedIn</p>
                 <a
-                  href='https://www.linkedin.com/in/sagina-ravikiran-padal-0b9999253'
+                  href='https://www.linkedin.com/in/ravikiran-padal-sagina-0b9999253'
                   target='_blank'
                   rel='noreferrer'
                   className='text-white text-[18px] font-medium hover:text-white'
