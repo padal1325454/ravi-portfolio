@@ -11,7 +11,6 @@ import {
   redux,
   tailwind,
   nodejs,
-  mongodb,
   git,
   figma,
   docker,
@@ -21,9 +20,13 @@ import {
   shopify,
   crantya,
   hcl,
+  siemap,
+  bbq,
+  homemade,
+  arena,
   hotel,
   drawing3d,
-  mentalhealth,
+  analytics,
   threejs,
 } from "../assets";
 
@@ -56,7 +59,7 @@ const services = [
     icon: backend,
   },
   {
-    title: "ML Enthusiast",
+    title: "Spring Boot / REST APIs",
     icon: creator,
   },
 ];
@@ -95,10 +98,6 @@ const technologies = [
     icon: nodejs,
   },
   {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
     name: "Three JS",
     icon: threejs,
   },
@@ -118,11 +117,24 @@ const technologies = [
 
 const experiences = [
   {
+    title: "Junior Software Engineer (Full Stack)",
+    company_name: "SIEMAP LLC",
+    icon: siemap,
+    iconBg: "#0b0b0e",
+    date: "Jun 2026 - Present",
+    points: [
+      "Develop enterprise React and Spring Boot applications for inventory, purchasing, and business management, translating real-world client workflows into production software.",
+      "Build reusable React components and reporting dashboards with clean, production-ready UI, integrating Spring Boot REST APIs for purchase requests, orders, vendors, receiving, and invoicing.",
+      "Collaborate directly with clients to gather requirements, implement business workflows, and iterate quickly on feedback.",
+      "Optimize application performance across frontend rendering and API response handling to keep data-heavy management views fast and reliable.",
+    ],
+  },
+  {
     title: "Software Engineer",
-    company_name: "CRANTYA",
+    company_name: "CRANTYA, Little Elm, TX",
     icon: crantya,
     iconBg: "#FFFFFF",
-    date: "Sep 2025 - Present",
+    date: "Jan 2025 - Jun 2026",
     points: [
       "Developed ListTrac, a real estate listing analytics platform providing MLS brokers and agents with unbiased online traffic reporting and actionable marketing intelligence.",
       "Built React UI features and interactive dashboards surfacing listing performance, real estate search behavior, and consumer engagement data in a clean, usable interface.",
@@ -133,10 +145,10 @@ const experiences = [
   },
   {
     title: "Software Engineer Intern",
-    company_name: "HCL Technologies",
+    company_name: "HCL Technologies, Chennai, India",
     icon: hcl,
     iconBg: "#FFFFFF",
-    date: "Jan 2024 - Jun 2024",
+    date: "Jul 2023 - Jun 2024",
     points: [
       "Built a web application that automates the language translation workflow, significantly reducing manual effort and improving translation accuracy.",
       "Designed a responsive user interface and integrated NLP-based translation APIs, making the tool practical for real operational use.",
@@ -145,34 +157,91 @@ const experiences = [
   },
 ];
 
-const testimonials = [
-  {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-];
-
 const projects = [
+  {
+    name: "ListTrac — Real Estate Listing Analytics",
+    description:
+      "Production real estate analytics platform used daily by MLS brokers and agents for unbiased online traffic reporting. I built interactive React dashboards surfacing listing performance, search behavior, and consumer engagement, integrated third-party real estate data APIs with reliable error and loading states, and optimized rendering on views displaying thousands of records.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "data-viz",
+        color: "green-text-gradient",
+      },
+      {
+        name: "rest-apis",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: analytics,
+    source_code_link: "https://www.listtrac.com/MS/index.html",
+  },
+  {
+    name: "Arena Entertainment Booking",
+    description:
+      "High-performance entertainment booking platform written in Rust, covering booking, reservations, scheduling, and event management. Secure backend logic for both customer and administrator workflows, leaning on Rust's memory safety and concurrency.",
+    tags: [
+      {
+        name: "rust",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "backend",
+        color: "green-text-gradient",
+      },
+      {
+        name: "concurrency",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: arena,
+    source_code_link: "https://arena-entertainment.siemap.com/login",
+  },
+  {
+    name: "BBQ Inventory Management System",
+    description:
+      "Enterprise inventory platform covering the full procurement lifecycle — purchase requests, purchase orders, vendor management, receiving, and invoicing. Type-safe React components in TypeScript wired to Spring Boot REST APIs for real-time stock tracking and reporting.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "spring-boot",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: bbq,
+    source_code_link: "https://github.com/padal1325454",
+  },
+  {
+    name: "Home Made Marketplace",
+    description:
+      "Full-stack marketplace connecting home chefs with customers — authentication, product listings, ordering, and an admin dashboard. Spring Boot backend with secure REST APIs for user management, order processing, and catalog operations over MySQL.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "spring-boot",
+        color: "green-text-gradient",
+      },
+      {
+        name: "mysql",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: homemade,
+    source_code_link: "https://github.com/padal1325454",
+  },
   {
     name: "Hotel Management System",
     description:
@@ -215,27 +284,6 @@ const projects = [
     image: drawing3d,
     source_code_link: "https://github.com/padal1325454/3D-Drawing",
   },
-  {
-    name: "Student Mental Health Analysis",
-    description:
-      "Data analysis project uncovering correlations between academic pressure, stress, substance use, and mental health across student demographics. Built interactive Tableau dashboards to turn raw data into actionable insights for institutional support.",
-    tags: [
-      {
-        name: "python",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "pandas",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tableau",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: mentalhealth,
-    source_code_link: "https://github.com/padal1325454/mentalhealth",
-  },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, projects };

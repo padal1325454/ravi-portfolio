@@ -46,22 +46,19 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
       >
-        Software Engineer with production experience building React-powered
-        analytics platforms in the PropTech industry. At CRANTYA, I developed
-        ListTrac — a real estate listing analytics platform delivering unbiased
-        traffic reporting and marketing intelligence to MLS brokers and agents
-        nationwide.
+        Full Stack Software Engineer with production experience building
+        enterprise React.js applications, analytics dashboards, inventory
+        management systems, booking platforms, and scalable web applications.
         <br />
         <br />
-        My work spans shipping new features, integrating real estate data APIs,
-        optimizing frontend performance, and keeping production reliable. Beyond
-        the day job, I build full-stack systems, 3D browser apps, and run data
-        analysis on real-world datasets.
+        Experienced in React.js, TypeScript, JavaScript, Spring Boot, Python,
+        SQL, REST APIs, Azure, and Agile development. Proven track record
+        delivering production features, optimizing application performance, and
+        building modern, user-focused software.
         <br />
         <br />
-        Currently completing an MS in Computer and Information Sciences at the
-        University of North Texas, I’m looking to join a team where strong
-        engineering and real impact go hand in hand.
+        I hold an MS in Computer and Information Sciences from the University of
+        North Texas.
       </motion.p>
 
       <div className='mt-16 flex flex-wrap justify-center gap-12'>

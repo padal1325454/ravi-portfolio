@@ -27,13 +27,15 @@ import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import crantya from "./company/crantya.png";
 import hcl from "./company/hcl.png";
+import siemap from "./company/siemap.svg";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
 import hotel from "./hotel_final.png";
 import drawing3d from "./drawing3d_final.png";
-import mentalhealth from "./mentalhealth_final.png";
+import analytics from "./mentalhealth_final.png";
+// ponytail: placeholder thumbnails for the three new projects; replace with real screenshots
+import bbq from "./jobit.png";
+import homemadeImg from "./carrent.png";
+import arena from "./tripguide.png";
 
 export {
   logo,
@@ -63,10 +65,11 @@ export {
   tesla,
   crantya,
   hcl,
-  carrent,
-  jobit,
-  tripguide,
+  siemap,
   hotel,
   drawing3d,
-  mentalhealth,
+  analytics,
+  bbq,
+  homemadeImg as homemade,
+  arena,
 };
