@@ -17,42 +17,55 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div variants={fadeIn("up", "spring", index * 0.1, 0.8)}>
       <Tilt
         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
-        tiltMaxAngleX={45}
-        tiltMaxAngleY={45}
+        tiltMaxAngleX={10}
+        tiltMaxAngleY={10}
         scale={1}
         transitionSpeed={450}
       >
         <div className='relative w-full h-[230px]'>
           <img
             src={image}
-            alt='project_image'
+            alt={`${name} screenshot`}
+            loading='lazy'
             className='w-full h-full object-cover rounded-2xl'
           />
 
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              title={
+            <a
+              href={source_code_link}
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label={`${name}: ${
                 source_code_link.includes("github.com")
-                  ? "View source"
-                  : "Visit live site"
-              }
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+                  ? "view source"
+                  : "visit live site"
+              } (opens in new tab)`}
+              className='black-gradient w-11 h-11 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform'
             >
               {source_code_link.includes("github.com") ? (
                 <img
                   src={github}
-                  alt='source code'
+                  alt=''
                   className='w-1/2 h-1/2 object-contain'
                 />
               ) : (
-                /* ponytail: inline arrow beats adding an icon asset for one card */
-                <span className='text-white text-[18px] leading-none'>↗</span>
+                <svg
+                  viewBox='0 0 24 24'
+                  aria-hidden='true'
+                  className='w-5 h-5 text-white'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                >
+                  <path d='M7 17 17 7M8 7h9v9' />
+                </svg>
               )}
-            </div>
+            </a>
           </div>
         </div>
 
@@ -89,11 +102,9 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
         >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories and live demos in it. It reflects my
-          ability to solve complex problems, work with different technologies,
-          and manage projects effectively.
+          A selection of production and personal work, from enterprise
+          dashboards to booking platforms. Each card links to the live site or
+          source code.
         </motion.p>
       </div>
 
@@ -106,4 +117,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "projects");

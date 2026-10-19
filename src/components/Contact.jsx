@@ -15,6 +15,7 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
 
   const handleChange = (e) => {
     const { target } = e;
@@ -29,6 +30,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setStatus(null);
 
     try {
       const response = await fetch("/api/contact", {
@@ -45,7 +47,7 @@ const Contact = () => {
 
       if (data.success) {
         setLoading(false);
-        alert("Thank you. I will get back to you as soon as possible.");
+        setStatus({ ok: true, text: "Thank you. I will get back to you as soon as possible." });
         setForm({ name: "", email: "", message: "" });
       } else {
         throw new Error("Something went wrong");
@@ -53,7 +55,7 @@ const Contact = () => {
     } catch (error) {
       setLoading(false);
       console.error(error);
-      alert("Ahh, something went wrong. Please try again.");
+      setStatus({ ok: false, text: "Something went wrong. Please try again." });
     }
   };
 
@@ -78,10 +80,12 @@ const Contact = () => {
             <input
               type='text'
               name='name'
+              autoComplete='name'
+              required
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg border border-transparent focus:border-[#915EFF] transition-colors font-medium'
             />
           </label>
           <label className='flex flex-col'>
@@ -89,10 +93,12 @@ const Contact = () => {
             <input
               type='email'
               name='email'
+              autoComplete='email'
+              required
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg border border-transparent focus:border-[#915EFF] transition-colors font-medium'
             />
           </label>
           <label className='flex flex-col'>
@@ -100,19 +106,28 @@ const Contact = () => {
             <textarea
               rows={7}
               name='message'
+              required
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg border border-transparent focus:border-[#915EFF] transition-colors font-medium'
             />
           </label>
 
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            disabled={loading}
+            className='bg-[#915EFF] hover:bg-[#7c4dff] disabled:opacity-60 disabled:cursor-wait transition-colors py-3 px-8 rounded-xl w-fit text-white font-bold shadow-md shadow-primary'
           >
             {loading ? "Sending..." : "Send"}
           </button>
+          <p
+            role='status'
+            aria-live='polite'
+            className={`-mt-4 text-[15px] ${status?.ok ? "text-green-400" : "text-red-400"}`}
+          >
+            {status?.text}
+          </p>
         </form>
       </motion.div>
 

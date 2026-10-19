@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { MotionConfig, motion, useScroll, useSpring } from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -12,11 +13,24 @@ const Feedbacks = lazy(() => import("./components/Feedbacks"));
 const Contact = lazy(() => import("./components/Contact"));
 const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
 
+const ScrollProgress = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
+  return (
+    <motion.div
+      style={{ scaleX }}
+      className='fixed top-0 left-0 right-0 h-[3px] origin-left z-30 bg-gradient-to-r from-[#915EFF] to-[#7dd3fc]'
+    />
+  );
+};
+
 const SectionFallback = () => <div className="w-full h-32" />;
 
 const App = () => {
   return (
     <BrowserRouter>
+      <MotionConfig reducedMotion='user'>
+      <ScrollProgress />
       <div className='relative z-0 bg-primary'>
         <div className='relative overflow-hidden'>
           <video
@@ -27,6 +41,7 @@ const App = () => {
             loop
             playsInline
             preload='none'
+            aria-hidden='true'
           />
           <div className='relative z-10'>
             <Navbar />
@@ -55,6 +70,7 @@ const App = () => {
           </Suspense>
         </div>
       </div>
+      </MotionConfig>
     </BrowserRouter>
   );
 }
